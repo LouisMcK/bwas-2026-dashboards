@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BWAS 2026: Bazzer &amp; Wazzer Control Centre</title>
+<style>
+:root{--navy:#1F3864;--dark:#0F1E3D;--gold:#FFD54A;--card:#F2F6FC;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#eef2f8;color:#0F1E3D;}
+header{background:var(--dark);color:var(--gold);padding:30px 20px 22px;text-align:center;}
+header h1{margin:0;font-size:26px;letter-spacing:.5px;}
+header p{margin:8px 0 0;color:#cdd8ef;font-size:14px;font-style:italic;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px;}
+.card{background:#fff;border-radius:14px;padding:22px;margin:16px 0;
+box-shadow:0 2px 8px rgba(0,0,0,.12);text-align:center;}
+.card h2{margin:0 0 14px;color:var(--navy);font-size:21px;}
+.btn{display:inline-block;text-decoration:none;border-radius:9px;padding:13px 26px;
+font-size:16px;font-weight:700;margin:4px;}
+.btn.primary{background:var(--navy);color:#fff;}
+.btn.primary:hover{background:var(--dark);}
+.btn.ghost{background:#e7edf7;color:var(--navy);font-size:14px;padding:9px 16px;}
+.sub{color:#5b6b86;font-size:13px;margin:14px 0 10px;line-height:1.5;}
+.links{margin-top:6px;}
+.foot{text-align:center;color:#7a869a;font-size:12px;margin-top:24px;}
+</style></head><body>
+<header><h1>BWAS 2026: Bazzer &amp; Wazzer Control Centre</h1>
+<p>Pick a competition below</p></header>
+<div class="wrap">
+      <div class="card">
+        <h2>BWAS 2026 - Original</h2>
+        <a class="btn primary" href="original.html">Open dashboard</a>
+        <div class="sub">Works on phone &amp; computer &middot; tap a name for a player card &middot;
+          use the <b>Enter Scores</b> tab to update everything live</div>
+        <div class="links"><a class="btn ghost" href="original-mobile.html">Phone version</a>
+          <a class="btn ghost" href="original-race.html">Race chart</a></div>
+      </div>
+      <div class="card">
+        <h2>BWAS 2026 - Ceej</h2>
+        <a class="btn primary" href="ceej.html">Open dashboard</a>
+        <div class="sub">Works on phone &amp; computer &middot; tap a name for a player card &middot;
+          use the <b>Enter Scores</b> tab to update everything live</div>
+        <div class="links"><a class="btn ghost" href="ceej-mobile.html">Phone version</a>
+          <a class="btn ghost" href="ceej-race.html">Race chart</a></div>
+      </div>
+  <div class="foot">Tip: add this page to your home screen for one-tap access.
+  Updated by re-running build_bwas_dashboard.py + publish_site.py.</div>
+</div></body></html>
