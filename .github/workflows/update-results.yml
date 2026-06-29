@@ -1,0 +1,27 @@
+name: Update results
+on:
+  schedule:
+    - cron: '*/15 * * * *'      # every ~15 min (GitHub may delay during quiet periods)
+  workflow_dispatch:             # ...and a manual "Run workflow" button
+permissions:
+  contents: write
+concurrency: { group: update-results, cancel-in-progress: true }
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch live World Cup results
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python fetch_results.py --out results.json
+      - name: Commit if results changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results.json
+          git diff --staged --quiet || git commit -m "Update results"
+          git push
