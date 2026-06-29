@@ -59,6 +59,8 @@ SYNONYMS = {
     norm("Turkiye"): "Turkey",
     norm("Côte d'Ivoire"): "Ivory Coast",
     norm("Cote d'Ivoire"): "Ivory Coast",
+    norm("Bosnia-Herzegovina"): "Bosnia and Herzegovina",
+    norm("Bosnia & Herzegovina"): "Bosnia and Herzegovina",
     norm("United States"): "United States",
     norm("USA"): "United States",
     norm("Cabo Verde"): "Cape Verde",
