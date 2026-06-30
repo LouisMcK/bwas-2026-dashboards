@@ -1,8 +1,8 @@
 {
 "source": "football-data.org (FIFA World Cup)",
-"updated": "2026-06-30T17:19:11Z",
+"updated": "2026-06-30T19:21:50Z",
 "count": 77,
-"live": 1,
+"live": 0,
 "matches": [
 {
 "a": "Mexico",
@@ -843,13 +843,13 @@
 {
 "a": "Ivory Coast",
 "b": "Norway",
-"ga": 0,
-"gb": 0,
+"ga": 1,
+"gb": 2,
 "pa": null,
 "pb": null,
 "stage": "LAST_32",
 "date": "2026-06-30T17:00:00Z",
-"live": true
+"live": false
 }
 ]
 }
