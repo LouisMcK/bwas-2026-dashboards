@@ -109,14 +109,20 @@ def main():
     unmatched = set()
     out = []
     for m in matches_in:
-        if m.get("status") != "FINISHED":
+        status = m.get("status")
+        live = status in ("IN_PLAY", "PAUSED")
+        if status != "FINISHED" and not live:
             continue
         score = m.get("score", {}) or {}
         dur = score.get("duration")
         ft = score.get("fullTime", {}) or {}
         pens = score.get("penalties", {}) or {}
         pa, pb = pens.get("home"), pens.get("away")
-        if dur == "PENALTY_SHOOTOUT":
+        if live:
+            # in-play: use the current running score (no pens / no ET folding yet)
+            ga, gb = ft.get("home"), ft.get("away")
+            pa = pb = None
+        elif dur == "PENALTY_SHOOTOUT":
             # football-data folds the shootout into fullTime; the real result is
             # the score after extra time = regularTime + extraTime, pens separate.
             rt = score.get("regularTime") or {}
@@ -137,18 +143,22 @@ def main():
             "b": map_team((m.get("awayTeam") or {}).get("name", ""), unmatched),
             "ga": ga, "gb": gb, "pa": pa, "pb": pb,
             "stage": m.get("stage"), "date": m.get("utcDate"),
+            "live": live,
         })
 
+    n_live = sum(1 for x in out if x["live"])
     payload = {
         "source": "football-data.org (FIFA World Cup)",
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "count": len(out),
+        "live": n_live,
         "matches": out,
     }
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=0)
 
-    print("Wrote %s with %d finished matches." % (args.out, len(out)))
+    print("Wrote %s with %d matches (%d finished, %d in play)."
+          % (args.out, len(out), len(out) - n_live, n_live))
     if unmatched:
         print("WARNING: %d team name(s) not mapped to BWAS spellings - add to "
               "SYNONYMS: %s" % (len(unmatched), sorted(unmatched)))
