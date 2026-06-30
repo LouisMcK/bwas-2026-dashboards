@@ -1,8 +1,8 @@
 {
 "source": "football-data.org (FIFA World Cup)",
-"updated": "2026-06-30T19:21:50Z",
-"count": 77,
-"live": 0,
+"updated": "2026-06-30T21:16:46Z",
+"count": 78,
+"live": 1,
 "matches": [
 {
 "a": "Mexico",
@@ -850,6 +850,17 @@
 "stage": "LAST_32",
 "date": "2026-06-30T17:00:00Z",
 "live": false
+},
+{
+"a": "France",
+"b": "Sweden",
+"ga": 0,
+"gb": 0,
+"pa": null,
+"pb": null,
+"stage": "LAST_32",
+"date": "2026-06-30T21:00:00Z",
+"live": true
 }
 ]
 }
