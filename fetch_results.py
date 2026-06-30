@@ -112,12 +112,26 @@ def main():
         if m.get("status") != "FINISHED":
             continue
         score = m.get("score", {}) or {}
+        dur = score.get("duration")
         ft = score.get("fullTime", {}) or {}
-        ga, gb = ft.get("home"), ft.get("away")
-        if ga is None or gb is None:
-            continue
         pens = score.get("penalties", {}) or {}
         pa, pb = pens.get("home"), pens.get("away")
+        if dur == "PENALTY_SHOOTOUT":
+            # football-data folds the shootout into fullTime; the real result is
+            # the score after extra time = regularTime + extraTime, pens separate.
+            rt = score.get("regularTime") or {}
+            et = score.get("extraTime") or {}
+            if rt.get("home") is not None:
+                ga = (rt.get("home") or 0) + (et.get("home") or 0)
+                gb = (rt.get("away") or 0) + (et.get("away") or 0)
+            else:  # fallback: strip the shootout back out of fullTime
+                ga = (ft.get("home") or 0) - (pa or 0)
+                gb = (ft.get("away") or 0) - (pb or 0)
+        else:
+            ga, gb = ft.get("home"), ft.get("away")
+            pa = pb = None   # only knockout shootouts carry a penalties score
+        if ga is None or gb is None:
+            continue
         out.append({
             "a": map_team((m.get("homeTeam") or {}).get("name", ""), unmatched),
             "b": map_team((m.get("awayTeam") or {}).get("name", ""), unmatched),

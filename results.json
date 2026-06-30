@@ -1,7 +1,7 @@
 {
 "source": "football-data.org (FIFA World Cup)",
-"updated": "2026-06-29T09:02:57Z",
-"count": 73,
+"updated": "2026-06-30T08:12:13Z",
+"count": 76,
 "matches": [
 {
 "a": "Mexico",
@@ -732,6 +732,36 @@
 "pb": null,
 "stage": "LAST_32",
 "date": "2026-06-28T19:00:00Z"
+},
+{
+"a": "Brazil",
+"b": "Japan",
+"ga": 2,
+"gb": 1,
+"pa": null,
+"pb": null,
+"stage": "LAST_32",
+"date": "2026-06-29T17:00:00Z"
+},
+{
+"a": "Germany",
+"b": "Paraguay",
+"ga": 1,
+"gb": 1,
+"pa": 3,
+"pb": 4,
+"stage": "LAST_32",
+"date": "2026-06-29T20:30:00Z"
+},
+{
+"a": "Netherlands",
+"b": "Morocco",
+"ga": 1,
+"gb": 1,
+"pa": 2,
+"pb": 3,
+"stage": "LAST_32",
+"date": "2026-06-30T01:00:00Z"
 }
 ]
 }
