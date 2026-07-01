@@ -1,8 +1,8 @@
 {
 "source": "football-data.org (FIFA World Cup)",
-"updated": "2026-07-01T19:24:37Z",
-"count": 80,
-"live": 0,
+"updated": "2026-07-01T21:09:37Z",
+"count": 81,
+"live": 1,
 "matches": [
 {
 "a": "Mexico",
@@ -883,6 +883,17 @@
 "stage": "LAST_32",
 "date": "2026-07-01T16:00:00Z",
 "live": false
+},
+{
+"a": "Belgium",
+"b": "Senegal",
+"ga": 0,
+"gb": 1,
+"pa": null,
+"pb": null,
+"stage": "LAST_32",
+"date": "2026-07-01T20:00:00Z",
+"live": true
 }
 ]
 }
