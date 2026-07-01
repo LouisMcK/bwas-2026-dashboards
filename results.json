@@ -1,6 +1,6 @@
 {
 "source": "football-data.org (FIFA World Cup)",
-"updated": "2026-07-01T21:09:37Z",
+"updated": "2026-07-01T22:41:34Z",
 "count": 81,
 "live": 1,
 "matches": [
@@ -887,8 +887,8 @@
 {
 "a": "Belgium",
 "b": "Senegal",
-"ga": 0,
-"gb": 1,
+"ga": 2,
+"gb": 2,
 "pa": null,
 "pb": null,
 "stage": "LAST_32",
